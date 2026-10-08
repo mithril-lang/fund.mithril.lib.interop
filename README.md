@@ -1,4 +1,4 @@
-# fund.mithril.interop
+# fund.mithril.lib.interop
 
 Common Mithril native plugin host (JSON RPC v1), compatibility facade and discovery.
 Implementation modules live in specification repositories; no adapter is built into this host.

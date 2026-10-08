@@ -5,12 +5,12 @@ Names describe ownership and specification, not endorsement by SISO or IEEE.
 
 | Repository | Responsibility |
 | --- | --- |
-| [fund.mithril.interop](https://github.com/mithril-lang/fund.mithril.interop) | Host, discovery, common refusal type and backward-compatible Mithril facade |
-| [fund.mithril.xml](https://github.com/mithril-lang/fund.mithril.xml) | Offline pinned XSD 1.1, native XML custody and explicit XPath projection |
-| [fund.mithril.siso.link16](https://github.com/mithril-lang/fund.mithril.siso.link16) | SISO 2021 DIS7 TSA0/MTI0 codecs and UDP simulation |
-| [fund.mithril.ieee.hla](https://github.com/mithril-lang/fund.mithril.ieee.hla) | IEEE1516e host and pinned OpenRTI build |
-| [fund.mithril.siso.c2sim](https://github.com/mithril-lang/fund.mithril.siso.c2sim) | OpenC2SIM-SMX-LOX-1.0.1 XML profile and pinned schema fetcher |
-| [fund.mithril.siso.msdl](https://github.com/mithril-lang/fund.mithril.siso.msdl) | SISO-STD-007-2008 structural XML profile |
+| [fund.mithril.lib.interop](https://github.com/mithril-lang/fund.mithril.lib.interop) | Host, discovery, common refusal type and backward-compatible Mithril facade |
+| [fund.mithril.lib.xml](https://github.com/mithril-lang/fund.mithril.lib.xml) | Offline pinned XSD 1.1, native XML custody and explicit XPath projection |
+| [fund.mithril.lib.siso.link16](https://github.com/mithril-lang/fund.mithril.lib.siso.link16) | SISO 2021 DIS7 TSA0/MTI0 codecs and UDP simulation |
+| [fund.mithril.lib.ieee.hla](https://github.com/mithril-lang/fund.mithril.lib.ieee.hla) | IEEE1516e host and pinned OpenRTI build |
+| [fund.mithril.lib.siso.c2sim](https://github.com/mithril-lang/fund.mithril.lib.siso.c2sim) | OpenC2SIM-SMX-LOX-1.0.1 XML profile and pinned schema fetcher |
+| [fund.mithril.lib.siso.msdl](https://github.com/mithril-lang/fund.mithril.lib.siso.msdl) | SISO-STD-007-2008 structural XML profile |
 
 Every package registers one `mithril.interop.plugins` Python entry point, named
 exactly its reverse-DNS ID, loading a class with `id`, `rpc_version = 1`,
@@ -20,7 +20,7 @@ plugin authorizes its Python code to execute locally; manifests are discovery
 metadata, not a sandbox. Only install trusted revisions. No automatic downloads
 occur during discovery or RPC execution.
 
-Each plugin packages `plugin.json` with schema `fund.mithril.interop.plugin.v1`,
+Each plugin packages `plugin.json` with schema `fund.mithril.lib.interop.plugin.v1`,
 ID, version, RPC version, entry point, operations, specification and effect flags.
 Callers pass data as one UTF-8 JSON request to `python -m mithril_interop.cli rpc`.
 Success is a JSON receipt on stdout; refusal is nonzero exit plus JSON stderr.
@@ -39,7 +39,7 @@ files pin common host/XML dependency commits using VCS URLs. For example:
 
 ```sh
 python3 -m venv .venv
-.venv/bin/python -m pip install 'git+https://github.com/mithril-lang/fund.mithril.siso.link16.git@v0.2.0'
+.venv/bin/python -m pip install 'git+https://github.com/mithril-lang/fund.mithril.lib.siso.link16.git@v0.2.0'
 printf '%s' '{"operation":"link16-loopback"}' | .venv/bin/python -m mithril_interop.cli rpc
 printf '%s' '{"operation":"plugins"}' | .venv/bin/python -m mithril_interop.cli rpc
 ```

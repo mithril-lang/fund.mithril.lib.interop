@@ -3,8 +3,8 @@ requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "fund-mithril-interop"
-version = "0.2.0"
+name = "fund-mithril-lib-interop"
+version = "0.3.0"
 requires-python = ">=3.11"
 dependencies = []
 
