@@ -10,3 +10,5 @@ python -m mithril_interop.cli rpc < examples/requests/plugins.json
 
 See [plugin contract](docs/plugins.md) and [implementation boundaries](docs/design.md).
 Native RF terminals and full tactical semantics are not implemented. TCP OpenRTI is unverified on macOS.
+
+See the [repository map and installation contract](docs/plugins.md).

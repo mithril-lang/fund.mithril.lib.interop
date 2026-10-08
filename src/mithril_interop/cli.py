@@ -82,7 +82,7 @@ def main():
         else:
             result = hla.exercise(args.executable, args.fom, endpoint=args.endpoint)
         print(json.dumps(result, ensure_ascii=False, indent=2, allow_nan=False))
-    except (Refusal, ValueError, KeyError, TypeError, OSError) as exc:
+    except (Refusal, ValueError, KeyError, TypeError, OSError, ImportError) as exc:
         print(json.dumps({"ok": False, "error": str(exc)}, ensure_ascii=False), file=sys.stderr)
         return 1
     return 0

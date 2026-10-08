@@ -1,8 +1,8 @@
 # Adapter design and evidence boundaries
 
 The language core owns model types, reference integrity, source provenance and
-pure transition admission. This repo owns native parsers/serializers and host
-effects. The shared boundary is JSON, binary data uses base64/hex, and large
+pure transition admission. The specification plugin repos own native parsers/serializers and host
+effects; this common repo owns discovery and the RPC contract. The shared boundary is JSON, binary data uses base64/hex, and large
 75-bit words stay hex strings when crossing JavaScript.
 
 ```text
