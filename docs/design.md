@@ -115,7 +115,7 @@ XSD 1.1 assertions, public C2SIM acceptance/rejection, loss reporting and guarde
 edits; SISO layout vectors, padding/count mutations, independent OpenDIS parsing,
 real UDP read-back; actual HLA object/event callbacks and time grants with
 in-process OpenRTI. A TCP-server test is included and required on Linux CI; its
-handshake timed out on the current macOS host and that gate is not yet verified.
+TCP test passed on Linux CI ([run](https://github.com/mithril-lang/fund.mithril.ieee.hla/actions/runs/37773380233)); the handshake still timed out on the macOS host.
 
 - [SISO-STD-002-2021](https://cdn.ymaws.com/www.sisostandards.org/resource/resmgr/standards_products/siso-std-002-2021_link_16.pdf):
   implementation reference, section 4.2 and tables 5, 7-9, 17. No RF specification was imported.

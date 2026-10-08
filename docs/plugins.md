@@ -48,8 +48,7 @@ XML/profile and Link16 plugins can be used from installed wheels. HLA additional
 needs a native build. Clone its repo, run `./scripts/build-hla.sh`, install it
 editable into the selected venv, then invoke `hla-exercise`. With a non-editable
 HLA install, pass the absolute native `executable` path in the RPC request.
-The FOM is packaged with the plugin. TCP RTI and external terminal acceptance
-remain separate verification gates.
+The FOM is packaged with the plugin. TCP RTI is verified on Linux CI; the macOS TCP handshake remains unresolved. External terminal acceptance is a separate verification gate.
 
 The existing local `mithril-interop` checkout remains the common host so existing
 Mithril configuration paths still work. Native runtime projects and schemas are
