@@ -39,7 +39,7 @@ files pin common host/XML dependency commits using VCS URLs. For example:
 
 ```sh
 python3 -m venv .venv
-.venv/bin/python -m pip install 'git+https://github.com/mithril-lang/fund.mithril.lib.siso.link16.git@v0.2.0'
+.venv/bin/python -m pip install 'git+https://github.com/mithril-lang/fund.mithril.lib.siso.link16.git@v0.3.0'
 printf '%s' '{"operation":"link16-loopback"}' | .venv/bin/python -m mithril_interop.cli rpc
 printf '%s' '{"operation":"plugins"}' | .venv/bin/python -m mithril_interop.cli rpc
 ```
