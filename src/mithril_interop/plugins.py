@@ -18,6 +18,16 @@ def catalog():
 def dispatch(request):
     if not isinstance(request, dict):
         raise Refusal("RPC request must be an object")
+    if request.get("operation") == "resolve-library":
+        from .libraries import resolve_library
+        if set(request) != {"operation", "libraryId"}:
+            raise Refusal("resolve-library has unknown or missing routing fields")
+        return resolve_library(request.get("libraryId"))
+    if request.get("operation") == "library-call":
+        from .libraries import invoke_library
+        if set(request) != {"operation", "libraryId", "member", "arguments"}:
+            raise Refusal("library-call has unknown or missing routing fields")
+        return invoke_library(request["libraryId"], request["member"], request["arguments"])
     plugins = catalog()
     if request.get("operation") == "plugins":
         return {"rpcVersion": 1, "plugins": [{"id": p.id, "operations": list(p.operations)} for p in plugins]}

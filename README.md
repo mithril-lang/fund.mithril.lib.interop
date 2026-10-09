@@ -12,3 +12,10 @@ See [plugin contract](docs/plugins.md) and [implementation boundaries](docs/desi
 Native RF terminals and full tactical semantics are not implemented. TCP OpenRTI is unverified on macOS.
 
 See the [repository map and installation contract](docs/plugins.md).
+
+## Common library IDs
+
+The repository name and canonical library ID are identical. Python/Hy, cljk,
+Mithril source imports and typed Kotoba modules use `fund.mithril.lib.*`.
+See [language adapters](docs/language-adapters.md) for explicit transport,
+locked resolution, graph digest checks and native execution examples.

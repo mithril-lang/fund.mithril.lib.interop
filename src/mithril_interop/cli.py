@@ -18,6 +18,16 @@ def rpc(request):
     from .plugins import dispatch
     return dispatch(request)
 
+def strict_json(data):
+    def pairs(items):
+        value = {}
+        for key, item in items:
+            if key in value:
+                raise Refusal("duplicate JSON field")
+            value[key] = item
+        return value
+    return json.loads(data, object_pairs_hook=pairs)
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -62,7 +72,7 @@ def main():
             data = sys.stdin.buffer.read(8 * 1024 * 1024 + 1)
             if len(data) > 8 * 1024 * 1024:
                 raise Refusal("RPC input limit exceeded")
-            result = rpc(json.loads(data))
+            result = rpc(strict_json(data))
         elif args.command == "xml-import":
             result = xml.import_xml(Path(args.path).read_bytes(), args.standard, args.version, args.schema_manifest)
         elif args.command == "xml-export":
